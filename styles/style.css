@@ -11,6 +11,273 @@
 */
 
 .page {
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;  
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 98px;
+  padding: 100px 0;
+  font-family: var(--main-font-family), sans-serif;
+  font-variation-settings: "wght" var(--text-font-weight);
+}
+
+/* HEADER */
+
+.header {
+  border: 2px solid var(--border-color);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 19px;
+  color: var(--text-color);
+  padding: clamp(122px, 7.448rem + 0.7512vw, 130px) clamp(16px, -1.3438rem + 10vw, 122.5px);
+  font-family: var(--accent-font), sans-serif;
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-size: clamp(49px, 2.7104rem + 1.5023vw, 65px);
+}
+
+.header__text {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  inline-size: clamp(375px, 16.2852rem + 30.5164vw, 700px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--accent-color);
+  border: 2px solid var(--border-color);
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  font-variation-settings: "wght" var(--title-font-weight);
+  padding: 4px 10px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.card__img-wrapper {
+  position: relative;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+}
+.card__img {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.card__watermark {
+  font-family: var(--accent-font), sans-serif;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  -webkit-text-stroke: 1px var(--accent-color);   
+  mix-blend-mode: hard-light;
+  text-shadow:
+    1px 0 var(--accent-color),
+    0 1px var(--accent-color),
+    -1px 0 var(--accent-color),
+    0 -1px var(--accent-color);  
+}
+
+@supports ((-webkit-text-stroke: 1px var(--accent-color)) or (text-stroke: 1px var(--accent-color))) {
+  .card__watermark {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--accent-color);
+    text-stroke: 1px var(--accent-color);
+  }
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+  font-size: 18px;
+  line-height: 21px;  
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 25px 25px 0;
+  gap: 6px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--accent-font), sans-serif;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.btn:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--border-color);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--border-color);
+}
+
+
+.btn::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text {
+  color: var(--accent-color);
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  block-size: 38px;
+  inline-size: 130px;
+  padding: 9px 17px;
+  line-height: 90%;
+  font-size: 14px;
+}
+
+.card__icon-button {
+  inline-size: 39px;
+  block-size: 36px;
+  padding: 0;
+  border: 0 solid transparent;
+  color: var(--accent-color);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus {
+  border: 1px solid var(--border-color);
+}
+
+.card__icon-button:focus-visible {
+  border: 1px solid var(--border-color);
+}
+
+.memory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-button-icon {
+  inline-size: 21px;
+  block-size: 21px;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: var(--accent-color);
+}
+
+.save-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 18px;
+  border: 2px solid var(--border-color);
+  font-size: 14px;
+  line-height: 90%;  
+  gap: 8px;
+}
+
+.dialog {
+  display: none;
+  inline-size: min(357px, calc(100% - 32px));
+  padding: 30px;
+  border: 2px solid var(--border-color);
+  font-family: var(--accent-font);
+  background: var(--accent-color);
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  max-width: 335px;
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 0.75);
+}
+
+.dialog__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__icon {
+  inline-size: 39px;
+  block-size: 39px;
+  fill: currentColor;
+}
+
+.dialog__text {
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog__button {
+  inline-size: 100%;
+  block-size: 38px;
+}
+
+@media (width <= 375px) {
+  .save-button {
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px 18px;
+  }
+
+  .save-button-icon {
+    inline-size: 28px;
+    block-size: 28px;
+  }
 }
