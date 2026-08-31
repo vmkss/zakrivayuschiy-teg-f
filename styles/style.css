@@ -118,7 +118,11 @@
 
 .img-opacity {
     filter: opacity(0.8);
-} 
+}
+
+.img-sepia-contrast-brightness {
+  filter: sepia(1) contrast(2) brightness(200%);
+}
 
 .card__watermark {
   font-family: var(--accent-font), sans-serif;
