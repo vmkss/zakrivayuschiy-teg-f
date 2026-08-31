@@ -306,6 +306,10 @@
   block-size: 38px;
 }
 
+.dialog__button-text {
+  text-transform: uppercase;
+}
+
 @media (width <= 375px) {
   .save-button {
     flex-direction: column;
