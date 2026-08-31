@@ -13,7 +13,7 @@
 .page {
   background-image: var(--background-image);
   background-size: cover;
-  background-attachment: fixed;  
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   display: flex;
@@ -80,12 +80,45 @@
   border-top: 2px solid var(--border-color);
   border-bottom: 2px solid var(--border-color);
 }
+
 .card__img {
   display: block;
   inline-size: 100%;
   aspect-ratio: 1;
   object-fit: cover;
 }
+
+.img-contrast {
+  filter: contrast(90%);
+}
+
+.img-blur {
+  filter: blur(0.3rem);
+}
+
+.img-grayscale {
+    filter: grayscale(0.8);
+}
+
+.img-hue-rotate {
+    filter: hue-rotate(-90deg);
+}
+
+.img-sepia {
+    filter: sepia(80%);
+}
+
+.img-invert {
+    filter: invert(0.7);
+}
+
+.img-saturate {
+    filter: saturate(258%);
+}
+
+.img-opacity {
+    filter: opacity(0.8);
+} 
 
 .card__watermark {
   font-family: var(--accent-font), sans-serif;
@@ -95,13 +128,13 @@
   font-size: 14px;
   text-transform: uppercase;
   opacity: 0.5;
-  -webkit-text-stroke: 1px var(--accent-color);   
+  -webkit-text-stroke: 1px var(--accent-color);
   mix-blend-mode: hard-light;
   text-shadow:
     1px 0 var(--accent-color),
     0 1px var(--accent-color),
     -1px 0 var(--accent-color),
-    0 -1px var(--accent-color);  
+    0 -1px var(--accent-color);
 }
 
 @supports ((-webkit-text-stroke: 1px var(--accent-color)) or (text-stroke: 1px var(--accent-color))) {
@@ -118,7 +151,7 @@
   gap: 25px;
   padding: 25px;
   font-size: 18px;
-  line-height: 21px;  
+  line-height: 21px;
 }
 
 .card__buttons {
@@ -220,7 +253,7 @@
   padding: 15px 18px;
   border: 2px solid var(--border-color);
   font-size: 14px;
-  line-height: 90%;  
+  line-height: 90%;
   gap: 8px;
 }
 
